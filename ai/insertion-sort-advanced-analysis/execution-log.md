@@ -2,10 +2,16 @@
 
 ## Current state
 
-- Phase: development complete
+- Phase: manual handoff complete
 - Contract version: 1
 - Blocking questions: none
-- Next phase: HackerRank editor entry and Run Code
+- Next phase: none — user will paste the editor-ready solution manually and run/submit on HackerRank
+
+## Manual handoff
+
+- User chose manual entry over Playwright automation when asked after development completed.
+- Delivered `src/main/bmv/insertion_sort_advanced_analysis/Solution.java.txt` (Java 15, contract version 1) as the editor-ready source, with the local validation summary from the development phase.
+- No browser editor entry or Run Code was performed by this workflow. HackerRank results are unverified by this session.
 
 ## Ownership and changed files
 
