@@ -1,0 +1,96 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.function.*;
+import java.util.regex.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toList;
+
+class Result {
+
+    /*
+     * Complete the 'insertionSort' function below.
+     *
+     * The function is expected to return an INTEGER.
+     * The function accepts INTEGER_ARRAY arr as parameter.
+     */
+
+    public static int insertionSort(List<Integer> arr) {
+        int[] values = new int[arr.size()];
+        for (int i = 0; i < values.length; i++) {
+            values[i] = arr.get(i);
+        }
+
+        return (int) countInversions(values, new int[values.length], 0, values.length);
+    }
+
+    private static long countInversions(int[] values, int[] buffer, int from, int to) {
+        if (to - from < 2) {
+            return 0;
+        }
+
+        int middle = (from + to) >>> 1;
+        long inversions = countInversions(values, buffer, from, middle)
+                + countInversions(values, buffer, middle, to);
+
+        if (values[middle - 1] <= values[middle]) {
+            return inversions;
+        }
+
+        int left = from;
+        int right = middle;
+        int destination = from;
+
+        while (left < middle && right < to) {
+            if (values[left] <= values[right]) {
+                buffer[destination++] = values[left++];
+            } else {
+                buffer[destination++] = values[right++];
+                inversions += middle - left;
+            }
+        }
+
+        while (left < middle) {
+            buffer[destination++] = values[left++];
+        }
+        while (right < to) {
+            buffer[destination++] = values[right++];
+        }
+
+        System.arraycopy(buffer, from, values, from, to - from);
+        return inversions;
+    }
+}
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        int t = Integer.parseInt(bufferedReader.readLine().trim());
+
+        IntStream.range(0, t).forEach(tItr -> {
+            try {
+                int n = Integer.parseInt(bufferedReader.readLine().trim());
+
+                List<Integer> arr = Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" "))
+                    .map(Integer::parseInt)
+                    .collect(toList());
+
+                int result = Result.insertionSort(arr);
+
+                bufferedWriter.write(String.valueOf(result));
+                bufferedWriter.newLine();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+
+        bufferedReader.close();
+        bufferedWriter.close();
+    }
+}

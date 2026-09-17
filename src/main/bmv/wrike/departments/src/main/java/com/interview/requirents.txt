@@ -1,0 +1,2 @@
+1. impelement com.interview.DepartmentService.isUserAllowed method
+2. analyze existing code in DepartmentService and fix possible bugs and report issues with imlementation

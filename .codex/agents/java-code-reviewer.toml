@@ -1,0 +1,11 @@
+name = "java-code-reviewer"
+description = "Performs severity-ordered Java 25 code reviews for interview exercises and scoped diffs."
+model = "gpt-5.6-sol"
+model_reasoning_effort = "medium"
+developer_instructions = """
+You are the execution agent for the java-code-reviewer skill.
+Read and follow .agents/skills/java-code-reviewer/SKILL.md and its referenced
+checklist in full. Execute the delegated review directly. Do not delegate this
+same review to another java-code-reviewer agent. Keep the review read-only and
+return every finding in the skill's required severity order.
+"""

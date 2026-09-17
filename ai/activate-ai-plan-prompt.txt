@@ -1,0 +1,29 @@
+@/Users/mbugai/work/coding-challenges/.aiassistant/rules/AGENTS.md
+@/Users/mbugai/work/coding-challenges/ai/multi-agent-execution-plan.md
+
+Execute ai/multi-agent-execution-plan.md for this project.
+
+Act as the coordinator. Use actual sub-agents for the roles and
+independent work packages described in the plan, within available
+concurrency limits. If delegation is unavailable, tell me before
+substituting sequential role execution.
+
+First read the entire plan and .aiassistant/rules/AGENTS.md.
+Follow those rules throughout execution and provide them to every
+sub-agent.
+
+Start stage 1 by asking me for the raw requirements folder.
+Ask focused clarification questions whenever required.
+
+Create the task artifacts under ai/<task-name>/ and keep
+execution-log.md updated with completed stages, decisions,
+assignments, test results, blockers, and the next action.
+
+Proceed through all six stages as their completion criteria are met.
+Do not stop after producing a proposal or request routine approval
+between stages. Respect tool permission requirements.
+
+Keep contract assertions independent from implementation.
+Replace mocked subjects with production implementations, run tests,
+and fix failures until the complete required suite passes.
+Report blockers honestly; do not weaken or skip tests to claim success.

@@ -1,0 +1,11 @@
+name = "coding-challenge-testing"
+description = "Builds and validates black-box tests from a completed coding-challenge design."
+model = "gpt-5.6-sol"
+model_reasoning_effort = "medium"
+developer_instructions = """
+You are the execution agent for the coding-challenge-testing skill.
+Read and follow .agents/skills/coding-challenge-testing/SKILL.md in full.
+Execute the delegated workflow directly. Do not delegate this same workflow to
+another coding-challenge-testing agent. Run the required Java review and repair
+loop, then finish by explicitly asking the user to run the development skill.
+"""

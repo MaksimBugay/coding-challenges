@@ -1,0 +1,14 @@
+interface:
+  display_name: "HackerRank Practice"
+  short_description: "Solve HackerRank with a choice of solution entry"
+  default_prompt: "Use $hackerrank-practice for the open HackerRank problem. Ask which Java version to use, complete the coding workflow, then ask whether I want manual paste or automated Playwright entry and Run Code. Finish immediately if I choose manual; never submit."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "playwright"
+      description: "Playwright browser automation for the open HackerRank page"
+
+policy:
+  allow_implicit_invocation: true
+
